@@ -1,0 +1,178 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 15%;
+
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 9%;
+
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 0 0% 9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 0 0% 9%;
+
+    --radius: 0rem;
+
+    /* Luxury design tokens */
+    --heading-primary: 0 0% 9%;
+    --heading-secondary: 0 0% 20%;
+    --text-body: 0 0% 25%;
+    --text-muted: 0 0% 50%;
+    --divider: 0 0% 92%;
+    
+    /* Spacing scale */
+    --spacing-section: 8rem;
+    --spacing-component: 4rem;
+    
+    /* Transitions */
+    --transition-smooth: all 400ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "kern" 1;
+    letter-spacing: -0.01em;
+  }
+
+  /* Better text selection */
+  ::selection {
+    background-color: hsl(var(--primary) / 0.15);
+    color: hsl(var(--primary));
+  }
+
+  /* Smooth focus for accessibility */
+  *:focus-visible {
+    outline: 2px solid hsl(var(--primary) / 0.5);
+    outline-offset: 2px;
+    transition: outline-offset 200ms ease;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-primary;
+    letter-spacing: -0.02em;
+    font-weight: 300;
+  }
+
+  h1 {
+    @apply text-5xl md:text-7xl lg:text-8xl;
+    line-height: 0.95;
+  }
+
+  h2 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+    line-height: 1;
+  }
+
+  h3 {
+    @apply text-3xl md:text-4xl;
+    line-height: 1.1;
+  }
+
+  p {
+    @apply text-base md:text-lg;
+    color: hsl(var(--text-body));
+    line-height: 1.7;
+  }
+}
+
+@layer utilities {
+  @keyframes slideLeft {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+
+  @keyframes pulse-subtle {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.8;
+    }
+  }
+
+  .slideLeft {
+    animation: slideLeft 30s linear infinite;
+    will-change: transform;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+  }
+
+  /* Smooth interaction utilities */
+  .smooth-hover {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .scale-hover {
+    @apply transition-transform duration-300 ease-out hover:scale-[1.02] active:scale-[0.98];
+  }
+
+  /* Loading shimmer effect */
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      hsl(var(--primary) / 0.05) 50%,
+      transparent 100%
+    );
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite;
+  }
+
+  /* Card hover effects */
+  .card-hover {
+    @apply transition-all duration-400 hover:shadow-xl hover:-translate-y-1;
+  }
+
+  /* Smooth scroll */
+  .smooth-scroll {
+    scroll-behavior: smooth;
+  }
+}

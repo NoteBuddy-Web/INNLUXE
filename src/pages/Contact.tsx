@@ -1,0 +1,241 @@
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
+import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { toast } from "sonner";
+import { supabase, ContactFormData } from "@/lib/supabase";
+
+const Contact = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Contact form submitted - starting...");
+    
+    try {
+      const formData: ContactFormData = {
+        name,
+        email,
+        phone,
+        message
+      };
+
+      console.log("Form data:", formData);
+
+      const { data, error } = await supabase
+        .from('contact_form_submissions')
+        .insert([formData])
+        .select()
+        .single();
+
+      if (error) {
+        console.error('Error submitting contact form:', error);
+        toast.error(`Erreur: ${error.message}`);
+        return;
+      }
+
+      console.log('Contact form submitted successfully:', data);
+      
+      // Appeler la fonction Edge pour envoyer l'email
+      try {
+        const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || 'https://rqdhwrtkweeuiqjrvbrd.supabase.co';
+        const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJxZGh3cnRrd2VldWlxanJ2YnJkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE2NTgxNTYsImV4cCI6MjA3NzIzNDE1Nn0.R_84JD0cRrYjdTd6mU837bfwcBdw9s9a8EEYRHE70uE';
+        
+        const emailPayload = {
+          table: 'contact_form_submissions',
+          record: data
+        };
+        
+        console.log('Calling Edge Function with payload:', emailPayload);
+        
+        const emailResponse = await fetch(`${supabaseUrl}/functions/v1/send-notification`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${supabaseAnonKey}`
+          },
+          body: JSON.stringify(emailPayload)
+        });
+
+        if (emailResponse.ok) {
+          const emailResult = await emailResponse.json();
+          console.log('Email notification sent successfully:', emailResult);
+        } else {
+          const errorText = await emailResponse.text();
+          console.error('Error sending email notification:', {
+            status: emailResponse.status,
+            statusText: emailResponse.statusText,
+            error: errorText
+          });
+        }
+      } catch (emailError) {
+        console.error('Error calling email function:', emailError);
+      }
+      
+      toast.success("Message envoyé avec succès !");
+      setName("");
+      setEmail("");
+      setPhone("");
+      setMessage("");
+    } catch (error) {
+      console.error('Unexpected error:', error);
+      toast.error("Une erreur inattendue s'est produite. Veuillez réessayer.");
+    }
+  };
+
+  return (
+    <div className="min-h-screen flex flex-col">
+      <Navigation />
+
+      <main className="flex-1 pt-32 pb-20">
+        {/* Header */}
+        <section className="px-6 mb-20">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="mb-6">Contactez-nous</h1>
+            <p className="text-xl text-muted-foreground">
+              Prêt à discuter de votre bien ? Notre équipe est disponible pour répondre à vos questions.
+            </p>
+          </div>
+        </section>
+
+        <div className="px-6">
+          <div className="max-w-screen-xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-16">
+              {/* Contact Info */}
+              <div className="space-y-12">
+                <div>
+                  <h3 className="text-2xl font-light mb-8">Entrer en contact</h3>
+                  <div className="space-y-6">
+                    <div className="flex gap-4">
+                      <MapPin className="text-primary flex-shrink-0" size={24} />
+                      <div>
+                        <p className="font-medium mb-1">Adresse du bureau</p>
+                        <p className="text-muted-foreground">
+                          18 Place Dauphine<br />
+                          Paris 75001, France
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex gap-4">
+                      <Phone className="text-primary flex-shrink-0" size={24} />
+                      <div>
+                        <p className="font-medium mb-1">Téléphone</p>
+                        <p className="text-muted-foreground">+33 6 16 52 50 89</p>
+                      </div>
+                    </div>
+
+                    <div className="flex gap-4">
+                      <Mail className="text-primary flex-shrink-0" size={24} />
+                      <div>
+                        <p className="font-medium mb-1">E-mail</p>
+                        <p className="text-muted-foreground">cedric@innluxe.fr</p>
+                      </div>
+                    </div>
+
+                    <div className="flex gap-4">
+                      <Clock className="text-primary flex-shrink-0" size={24} />
+                      <div>
+                        <p className="font-medium mb-1">Heures d'ouverture</p>
+                        <p className="text-muted-foreground">
+                          Lundi - Vendredi : 9h00 - 18h00<br />
+                          Samedi : 10h00 - 16h00<br />
+                          Dimanche : Fermé
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Map */}
+                <div className="aspect-video bg-background overflow-hidden rounded-xl border border-border/30 shadow-xl hover:shadow-2xl transition-all duration-300 relative group">
+                  <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-black/5 pointer-events-none z-10 rounded-xl" />
+                  <div className="absolute inset-[1px] rounded-xl overflow-hidden">
+                    <iframe
+                      src="https://www.google.com/maps?q=18+Place+Dauphine,+75001+Paris,+France&output=embed"
+                      width="100%"
+                      height="100%"
+                      style={{ border: 0 }}
+                      allowFullScreen
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      className="w-full h-full"
+                      title="Office Location - 18 Place Dauphine, Paris"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Contact Form */}
+              <div>
+                <h3 className="text-2xl font-light mb-8">Envoyer un message</h3>
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div>
+                    <Label htmlFor="contact-name">Nom *</Label>
+                    <Input
+                      id="contact-name"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      required
+                      className="h-12"
+                    />
+                  </div>
+
+                  <div>
+                    <Label htmlFor="contact-email">E-mail *</Label>
+                    <Input
+                      id="contact-email"
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                      className="h-12"
+                    />
+                  </div>
+
+                  <div>
+                    <Label htmlFor="contact-phone">Téléphone</Label>
+                    <Input
+                      id="contact-phone"
+                      type="tel"
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
+                      className="h-12"
+                    />
+                  </div>
+
+                  <div>
+                    <Label htmlFor="contact-message">Message *</Label>
+                    <Textarea
+                      id="contact-message"
+                      value={message}
+                      onChange={(e) => setMessage(e.target.value)}
+                      placeholder="Comment pouvons-nous vous aider ?"
+                      rows={6}
+                      required
+                    />
+                  </div>
+
+                  <Button type="submit" variant="hero" size="lg" className="w-full">
+                    Envoyer le message
+                  </Button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default Contact;
