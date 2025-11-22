@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vendez votre bien | INNLUXE</title>
+  <meta name="description" content="Sell your property fast with INNLUXE. Get a cash offer in 24-48 hours. Complete our confidential form to get started.">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <a href="./" class="logo">INNLUXE</a>
+      <ul class="nav-links">
+        <li><a href="sell.html">Vendre</a></li>
+        <li><a href="buy.html">Acheter</a></li>
+        <li><a href="repairs.html">Rénovation</a></li>
+        <li><a href="about.html">À propos</a></li>
+      </ul>
+      <button class="mobile-menu-button" aria-label="Menu">☰</button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu">
+    <ul class="nav-links">
+      <li><a href="sell.html">Vendre</a></li>
+      <li><a href="buy.html">Acheter</a></li>
+      <li><a href="repairs.html">Rénovation</a></li>
+      <li><a href="about.html">À propos</a></li>
+    </ul>
+  </div>
+
+  <!-- Main Content -->
+  <main style="padding-top: 140px; padding-bottom: 5rem; min-height: 100vh;">
+    <div class="container" style="max-width: 900px;">
+      
+      <!-- Header -->
+      <div class="text-center mb-6">
+        <h1 class="mb-3">Vendez votre bien</h1>
+        <p class="text-muted" style="font-size: 1.125rem;">
+          Complétez ce formulaire confidentiel pour recevoir votre offre de rachat
+        </p>
+      </div>
+
+      <!-- Form Container -->
+      <div id="sell-form">
+        <!-- Progress Bar -->
+        <div class="progress-container">
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 33.33%;"></div>
+          </div>
+          <div class="progress-steps">
+            <span class="active">Contact & Localisation</span>
+            <span>Détails du bien</span>
+            <span>Informations financières</span>
+          </div>
+        </div>
+
+        <form>
+          <!-- Step 1: Contact & Location -->
+          <div class="form-step step-1">
+            <div class="form-group">
+              <label for="name">Nom complet *</label>
+              <input type="text" id="name" required>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+              <div class="form-group">
+                <label for="email">Adresse e-mail *</label>
+                <input type="email" id="email" required>
+              </div>
+              <div class="form-group">
+                <label for="phone">Numéro de téléphone *</label>
+                <input type="tel" id="phone" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="address">Adresse du bien *</label>
+              <input type="text" id="address" placeholder="Adresse de rue" required>
+            </div>
+
+            <div class="form-group">
+              <label for="city">Ville *</label>
+              <input type="text" id="city" required>
+            </div>
+
+            <div class="form-group">
+              <label>Méthode de contact préférée *</label>
+              <div style="margin-top: 0.5rem;">
+                <label style="display: flex; align-items: center; margin-bottom: 0.5rem; font-weight: normal; cursor: pointer;">
+                  <input type="radio" name="contact_method" value="phone" checked style="width: auto; margin-right: 0.5rem;">
+                  Téléphone
+                </label>
+                <label style="display: flex; align-items: center; font-weight: normal; cursor: pointer;">
+                  <input type="radio" name="contact_method" value="email" style="width: auto; margin-right: 0.5rem;">
+                  E-mail
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="best_time">Meilleur moment pour vous joindre</label>
+              <select id="best_time">
+                <option value="">Sélectionner l'heure</option>
+                <option value="morning">Matin (8h - 12h)</option>
+                <option value="afternoon">Après-midi (12h - 17h)</option>
+                <option value="evening">Soirée (17h - 20h)</option>
+              </select>
+            </div>
+
+            <div style="display: flex; justify-content: flex-end; margin-top: 2rem;">
+              <button type="button" class="btn btn-dark btn-next">
+                Suivant →
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 2: Property Details -->
+          <div class="form-step step-2 hidden">
+            <div class="form-group">
+              <label for="property_type">Type de bien *</label>
+              <select id="property_type" required>
+                <option value="">Sélectionner le type</option>
+                <option value="apartment">Appartement</option>
+                <option value="house">Maison</option>
+                <option value="villa">Villa</option>
+                <option value="commercial">Commercial</option>
+              </select>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
+              <div class="form-group">
+                <label for="surface_area">Surface (m²) *</label>
+                <input type="number" id="surface_area" required>
+              </div>
+              <div class="form-group">
+                <label for="bedrooms">Chambres</label>
+                <input type="number" id="bedrooms">
+              </div>
+              <div class="form-group">
+                <label for="bathrooms">Salles de bain</label>
+                <input type="number" id="bathrooms">
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+              <div class="form-group">
+                <label for="year_built">Année de construction</label>
+                <input type="number" id="year_built">
+              </div>
+              <div class="form-group">
+                <label for="condition">État du bien *</label>
+                <select id="condition" required>
+                  <option value="">Sélectionner l'état</option>
+                  <option value="excellent">Excellent</option>
+                  <option value="good">Bon</option>
+                  <option value="fair">Correct</option>
+                  <option value="needs-work">Nécessite des travaux</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="features">Caractéristiques notables</label>
+              <textarea id="features" placeholder="Piscine, garage, jardin, rénovations récentes, etc." rows="4"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="urgency">Urgence de vente *</label>
+              <select id="urgency" required>
+                <option value="">Sélectionner l'urgence</option>
+                <option value="immediate">Immédiate (ASAP)</option>
+                <option value="30-60">30-60 jours</option>
+                <option value="flexible">Délai flexible</option>
+              </select>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; margin-top: 2rem;">
+              <button type="button" class="btn btn-outline btn-prev">
+                ← Précédent
+              </button>
+              <button type="button" class="btn btn-dark btn-next">
+                Suivant →
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 3: Financial Info -->
+          <div class="form-step step-3 hidden">
+            <div class="form-group">
+              <label for="desired_price">Prix souhaité ou fourchette *</label>
+              <input type="text" id="desired_price" placeholder="ex: 500 000 € ou 450k-550k €" required>
+            </div>
+
+            <div class="form-group">
+              <label>Prêt en cours ? *</label>
+              <div style="margin-top: 0.5rem;">
+                <label style="display: flex; align-items: center; margin-bottom: 0.5rem; font-weight: normal; cursor: pointer;">
+                  <input type="radio" name="mortgage" value="yes" style="width: auto; margin-right: 0.5rem;">
+                  Oui
+                </label>
+                <label style="display: flex; align-items: center; font-weight: normal; cursor: pointer;">
+                  <input type="radio" name="mortgage" value="no" checked style="width: auto; margin-right: 0.5rem;">
+                  Non
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="viewing_availability">Disponibilité pour visite *</label>
+              <textarea id="viewing_availability" placeholder="Veuillez préciser vos jours et heures disponibles" rows="3" required></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="additional_info">Informations supplémentaires</label>
+              <textarea id="additional_info" placeholder="Autre chose que nous devrions savoir ?" rows="4"></textarea>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; margin-top: 2rem;">
+              <button type="button" class="btn btn-outline btn-prev">
+                ← Précédent
+              </button>
+              <button type="button" class="btn btn-dark btn-submit">
+                Soumettre la demande
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- Success Message (hidden by default) -->
+      <div id="success-message" class="hidden">
+        <div class="success-container">
+          <svg class="success-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+          <h1 class="mb-4">Merci</h1>
+          <p style="font-size: 1.25rem; color: var(--muted-foreground); margin-bottom: 1rem;">
+            Les détails de votre bien ont été reçus. Un représentant INNLUXE vous contactera sous peu pour discuter de votre offre de rachat.
+          </p>
+          <p style="font-size: 1.125rem; color: var(--muted-foreground); margin-bottom: 2rem;">
+            Délai de réponse typique : 24-48 heures
+          </p>
+          <a href="./" class="btn btn-dark">
+            Retour à l'accueil
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container-wide">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>INNLUXE</h3>
+          <p class="text-muted">
+            Précision. Discrétion. Performance. Transformer les biens en liquidité, rapidement.
+          </p>
+        </div>
+        
+        <div>
+          <h4 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05rem; margin-bottom: 1rem;">Liens rapides</h4>
+          <ul class="footer-links">
+            <li><a href="sell.html">Vendre un bien</a></li>
+            <li><a href="buy.html">Acheter un bien</a></li>
+            <li><a href="repairs.html">Services de réparation</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05rem; margin-bottom: 1rem;">Entreprise</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">À propos</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05rem; margin-bottom: 1rem;">Contact</h4>
+          <ul class="footer-links">
+            <li style="margin-bottom: 0.5rem;">+33 6 16 52 50 89</li>
+            <li>cedric@innluxe.fr</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>© 2025 INNLUXE. Tous droits réservés.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
+

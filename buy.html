@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parcourir les biens | INNLUXE</title>
+  <meta name="description" content="Browse our curated collection of luxury properties. Each represents architectural distinction and investment excellence.">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <a href="./" class="logo">INNLUXE</a>
+      <ul class="nav-links">
+        <li><a href="sell.html">Vendre</a></li>
+        <li><a href="buy.html">Acheter</a></li>
+        <li><a href="repairs.html">Rénovation</a></li>
+        <li><a href="about.html">À propos</a></li>
+      </ul>
+      <button class="mobile-menu-button" aria-label="Menu">☰</button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu">
+    <ul class="nav-links">
+      <li><a href="sell.html">Vendre</a></li>
+      <li><a href="buy.html">Acheter</a></li>
+      <li><a href="repairs.html">Rénovation</a></li>
+      <li><a href="about.html">À propos</a></li>
+    </ul>
+  </div>
+
+  <!-- Main Content -->
+  <main style="padding-top: 140px; padding-bottom: 5rem;">
+    
+    <!-- Header -->
+    <section style="padding: 0 1.5rem 4rem;">
+      <div class="container text-center">
+        <h1 class="mb-4">Parcourir les biens</h1>
+        <p class="text-muted" style="font-size: 1.125rem; max-width: 768px; margin: 0 auto;">
+          Collection soigneusement sélectionnée de biens exceptionnels. Chacun représente une distinction architecturale et une excellence d'investissement.
+        </p>
+      </div>
+    </section>
+
+    <!-- Filters -->
+    <section style="padding: 0 1.5rem 3rem;">
+      <div class="container-wide">
+        <div class="filters">
+          <div class="filter-grid">
+            <div class="form-group" style="margin-bottom: 0;">
+              <input type="text" id="search" placeholder="Rechercher par localisation...">
+            </div>
+            <div class="form-group" style="margin-bottom: 0;">
+              <select id="price-range">
+                <option value="">Fourchette de prix</option>
+                <option value="0-1m">Moins de 1M €</option>
+                <option value="1m-2m">1M € - 2M €</option>
+                <option value="2m-3m">2M € - 3M €</option>
+                <option value="3m+">3M € et plus</option>
+              </select>
+            </div>
+            <div class="form-group" style="margin-bottom: 0;">
+              <select id="property-type">
+                <option value="">Type de bien</option>
+                <option value="apartment">Appartement</option>
+                <option value="house">Maison</option>
+                <option value="villa">Villa</option>
+                <option value="penthouse">Penthouse</option>
+              </select>
+            </div>
+            <div class="form-group" style="margin-bottom: 0;">
+              <select id="bedrooms">
+                <option value="">Chambres</option>
+                <option value="1">1+</option>
+                <option value="2">2+</option>
+                <option value="3">3+</option>
+                <option value="4">4+</option>
+                <option value="5">5+</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="filter-actions">
+            <div>
+              <span id="property-count" class="text-muted" style="font-size: 0.875rem;">6 biens</span>
+              <button id="clear-filters" class="btn" style="margin-left: 1rem; padding: 0.5rem 1rem; font-size: 0.75rem;">
+                Effacer les filtres
+              </button>
+            </div>
+            <div class="form-group" style="margin-bottom: 0;">
+              <select id="sort" style="width: 200px;">
+                <option value="">Trier par</option>
+                <option value="price-asc">Prix : Croissant</option>
+                <option value="price-desc">Prix : Décroissant</option>
+                <option value="surface-asc">Surface : Petite à grande</option>
+                <option value="surface-desc">Surface : Grande à petite</option>
+                <option value="bedrooms-asc">Chambres : Peu à beaucoup</option>
+                <option value="bedrooms-desc">Chambres : Beaucoup à peu</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Property Grid -->
+    <section style="padding: 0 1.5rem;">
+      <div class="container-wide">
+        <div class="property-grid grid grid-2">
+          
+          <!-- Property 1 -->
+          <article class="property-item card" data-price="2850000" data-type="villa" data-bedrooms="4" data-surface="320" data-location="Paris, France">
+            <div style="overflow: hidden;">
+              <img src="assets/property-1.jpg" alt="Mountain view residence" class="card-image">
+            </div>
+            <div class="card-content">
+              <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 0.75rem;">
+                <h3 style="font-size: 1.5rem; font-weight: 300;">Résidence avec vue sur montagne</h3>
+                <p style="font-size: 1.25rem; font-weight: 300;">2 850 000 €</p>
+              </div>
+              <p class="text-muted mb-3">Villa contemporaine avec vues panoramiques sur les montagnes et fenêtres du sol au plafond</p>
+              <div style="display: flex; gap: 1rem; font-size: 0.875rem; color: var(--muted-foreground); margin-bottom: 0.5rem;">
+                <span>4 Chambres</span>
+                <span>•</span>
+                <span>3 Salles de bain</span>
+                <span>•</span>
+                <span>320 m²</span>
+              </div>
+              <p class="text-muted" style="font-size: 0.875rem; margin-bottom: 1rem;">Paris, France</p>
+              <button class="btn btn-outline" style="width: 100%;">Demander une visite</button>
+            </div>
+          </article>
+
+          <!-- Property 2 -->
+          <article class="property-item card" data-price="3200000" data-type="house" data-bedrooms="5" data-surface="450" data-location="Paris, France">
+            <div style="overflow: hidden;">
+              <img src="assets/property-2.jpg" alt="Architectural masterpiece" class="card-image">
+            </div>
+            <div class="card-content">
+              <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 0.75rem;">
+                <h3 style="font-size: 1.5rem; font-weight: 300;">Chef-d'œuvre architectural</h3>
+                <p style="font-size: 1.25rem; font-weight: 300;">3 200 000 €</p>
+              </div>
+              <p class="text-muted mb-3">Excellence du design moderne avec luxe côté piscine et jardins paysagers</p>
+              <div style="display: flex; gap: 1rem; font-size: 0.875rem; color: var(--muted-foreground); margin-bottom: 0.5rem;">
+                <span>5 Chambres</span>
+                <span>•</span>
+                <span>4 Salles de bain</span>
+                <span>•</span>
+                <span>450 m²</span>
+              </div>
+              <p class="text-muted" style="font-size: 0.875rem; margin-bottom: 1rem;">Paris, France</p>
+              <button class="btn btn-outline" style="width: 100%;">Demander une visite</button>
+            </div>
+          </article>
+
+          <!-- Property 3 -->
+          <article class="property-item card" data-price="1950000" data-type="penthouse" data-bedrooms="3" data-surface="220" data-location="Paris, France">
+            <div style="overflow: hidden;">
+              <img src="assets/property-1.jpg" alt="Urban penthouse" class="card-image">
+            </div>
+            <div class="card-content">
+              <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 0.75rem;">
+                <h3 style="font-size: 1.5rem; font-weight: 300;">Penthouse urbain</h3>
+                <p style="font-size: 1.25rem; font-weight: 300;">1 950 000 €</p>
+              </div>
+              <p class="text-muted mb-3">Vie citadine sophistiquée avec vues panoramiques sur la ville et finitions de designer</p>
+              <div style="display: flex; gap: 1rem; font-size: 0.875rem; color: var(--muted-foreground); margin-bottom: 0.5rem;">
+                <span>3 Chambres</span>
+                <span>•</span>
+                <span>2 Salles de bain</span>
+                <span>•</span>
+                <span>220 m²</span>
+              </div>
+              <p class="text-muted" style="font-size: 0.875rem; margin-bottom: 1rem;">Paris, France</p>
+              <button class="btn btn-outline" style="width: 100%;">Demander une visite</button>
+            </div>
+          </article>
+
+          <!-- Property 4 -->
+          <article class="property-item card" data-price="4500000" data-type="villa" data-bedrooms="6" data-surface="550" data-location="Nice, France">
+            <div style="overflow: hidden;">
+              <img src="assets/property-2.jpg" alt="Coastal estate" class="card-image">
+            </div>
+            <div class="card-content">
+              <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 0.75rem;">
+                <h3 style="font-size: 1.5rem; font-weight: 300;">Domaine côtier</h3>
+                <p style="font-size: 1.25rem; font-weight: 300;">4 500 000 €</p>
+              </div>
+              <p class="text-muted mb-3">Propriété en bord de mer avec accès privé et terrasse coucher de soleil</p>
+              <div style="display: flex; gap: 1rem; font-size: 0.875rem; color: var(--muted-foreground); margin-bottom: 0.5rem;">
+                <span>6 Chambres</span>
+                <span>•</span>
+                <span>5 Salles de bain</span>
+                <span>•</span>
+                <span>550 m²</span>
+              </div>
+              <p class="text-muted" style="font-size: 0.875rem; margin-bottom: 1rem;">Nice, France</p>
+              <button class="btn btn-outline" style="width: 100%;">Demander une visite</button>
+            </div>
+          </article>
+
+          <!-- Property 5 -->
+          <article class="property-item card" data-price="1200000" data-type="apartment" data-bedrooms="2" data-surface="180" data-location="Lyon, France">
+            <div style="overflow: hidden;">
+              <img src="assets/property-1.jpg" alt="Luxury apartment" class="card-image">
+            </div>
+            <div class="card-content">
+              <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 0.75rem;">
+                <h3 style="font-size: 1.5rem; font-weight: 300;">Appartement de luxe</h3>
+                <p style="font-size: 1.25rem; font-weight: 300;">1 200 000 €</p>
+              </div>
+              <p class="text-muted mb-3">Appartement haut de gamme avec vues sur la ville et équipements premium</p>
+              <div style="display: flex; gap: 1rem; font-size: 0.875rem; color: var(--muted-foreground); margin-bottom: 0.5rem;">
+                <span>2 Chambres</span>
+                <span>•</span>
+                <span>2 Salles de bain</span>
+                <span>•</span>
+                <span>180 m²</span>
+              </div>
+              <p class="text-muted" style="font-size: 0.875rem; margin-bottom: 1rem;">Lyon, France</p>
+              <button class="btn btn-outline" style="width: 100%;">Demander une visite</button>
+            </div>
+          </article>
+
+          <!-- Property 6 -->
+          <article class="property-item card" data-price="2300000" data-type="house" data-bedrooms="4" data-surface="350" data-location="Bordeaux, France">
+            <div style="overflow: hidden;">
+              <img src="assets/property-2.jpg" alt="Modern townhouse" class="card-image">
+            </div>
+            <div class="card-content">
+              <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 0.75rem;">
+                <h3 style="font-size: 1.5rem; font-weight: 300;">Maison de ville moderne</h3>
+                <p style="font-size: 1.25rem; font-weight: 300;">2 300 000 €</p>
+              </div>
+              <p class="text-muted mb-3">Maison de ville contemporaine avec jardin privé et garage</p>
+              <div style="display: flex; gap: 1rem; font-size: 0.875rem; color: var(--muted-foreground); margin-bottom: 0.5rem;">
+                <span>4 Chambres</span>
+                <span>•</span>
+                <span>3 Salles de bain</span>
+                <span>•</span>
+                <span>350 m²</span>
+              </div>
+              <p class="text-muted" style="font-size: 0.875rem; margin-bottom: 1rem;">Bordeaux, France</p>
+              <button class="btn btn-outline" style="width: 100%;">Demander une visite</button>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container-wide">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>INNLUXE</h3>
+          <p class="text-muted">
+            Précision. Discrétion. Performance. Transformer les biens en liquidité, rapidement.
+          </p>
+        </div>
+        
+        <div>
+          <h4 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05rem; margin-bottom: 1rem;">Liens rapides</h4>
+          <ul class="footer-links">
+            <li><a href="sell.html">Vendre un bien</a></li>
+            <li><a href="buy.html">Acheter un bien</a></li>
+            <li><a href="repairs.html">Services de réparation</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05rem; margin-bottom: 1rem;">Entreprise</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">À propos</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05rem; margin-bottom: 1rem;">Contact</h4>
+          <ul class="footer-links">
+            <li style="margin-bottom: 0.5rem;">+33 6 16 52 50 89</li>
+            <li>cedric@innluxe.fr</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>© 2025 INNLUXE. Tous droits réservés.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
+

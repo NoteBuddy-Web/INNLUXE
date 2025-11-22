@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>INNLUXE | Luxury Real Estate & Cash Offers</title>
+  <meta name="description" content="Sell your property for cash in 24-48 hours. INNLUXE offers fast, discreet real estate transactions for apartments, villas, and commercial assets.">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  
+  <!-- Navigation -->
+  <nav class="dark">
+    <div class="nav-container">
+      <a href="./" class="logo">INNLUXE</a>
+      <ul class="nav-links">
+        <li><a href="sell.html">Vendre</a></li>
+        <li><a href="buy.html">Acheter</a></li>
+        <li><a href="repairs.html">Rénovation</a></li>
+        <li><a href="about.html">À propos</a></li>
+      </ul>
+      <button class="mobile-menu-button" aria-label="Menu">☰</button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu">
+    <ul class="nav-links">
+      <li><a href="sell.html">Vendre</a></li>
+      <li><a href="buy.html">Acheter</a></li>
+      <li><a href="repairs.html">Rénovation</a></li>
+      <li><a href="about.html">À propos</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <img src="assets/hero-city.jpg" alt="Luxury cityscape" class="hero-image hero-image-slide" style="opacity: 0; transition: opacity 1s;">
+    <img src="assets/Pont-neuf.jpg" alt="Pont Neuf Paris" class="hero-image hero-image-slide" style="opacity: 0; transition: opacity 1s; position: absolute; top: 0; left: 0;">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-logo">INNLUXE</div>
+      <p class="hero-subtitle">
+        Estimation gratuite sans engagements en quelques clics.<br>
+        Offres en 24-48 heures.
+      </p>
+      <div class="hero-buttons">
+        <a href="sell.html" class="btn btn-primary">
+          Obtenir une offre de rachat →
+        </a>
+        <a href="buy.html" class="btn btn-outline">
+          Parcourir les biens
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="py-8 section-bg">
+    <div class="container">
+      <h2 class="text-center mb-8">Comment ça marche</h2>
+      
+      <div class="grid grid-3">
+        <div class="text-center">
+          <div style="font-size: 3rem; font-weight: 300; color: rgba(23, 23, 23, 0.2); margin-bottom: 1rem;">01</div>
+          <h3 class="mb-2">Découverte de votre bien</h3>
+          <p>En présentiel ou en visioconférence, selon votre disponibilité. Nous sommes joignables 7j/7 pour comprendre votre projet.</p>
+        </div>
+        
+        <div class="text-center">
+          <div style="font-size: 3rem; font-weight: 300; color: rgba(23, 23, 23, 0.2); margin-bottom: 1rem;">02</div>
+          <h3 class="mb-2">Estimation sous 24 h</h3>
+          <p>Nous réalisons une estimation précise basée sur nos dernières ventes et les données officielles du marché immobilier.</p>
+        </div>
+        
+        <div class="text-center">
+          <div style="font-size: 3rem; font-weight: 300; color: rgba(23, 23, 23, 0.2); margin-bottom: 1rem;">03</div>
+          <h3 class="mb-2">Offre d'achat</h3>
+          <p>Si vous optez pour un rachat immédiat, vous recevez une offre ferme et claire. Signature possible en 10 jours.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Lead Capture -->
+  <section class="py-8 section-bg">
+    <div class="container" style="max-width: 768px;">
+      <div class="text-center mb-6">
+        <h2 class="mb-3">Prêt à vendre ?</h2>
+        <p class="text-muted" style="font-size: 1.125rem;">
+          Commencez avec une consultation rapide. Sans engagement.
+        </p>
+      </div>
+      
+      <form id="quick-form" onsubmit="event.preventDefault(); window.location.href='sell.html';">
+        <div class="form-group">
+          <input type="email" placeholder="Adresse e-mail" required>
+        </div>
+        <div class="form-group">
+          <input type="tel" placeholder="Numéro de téléphone" required>
+        </div>
+        <div class="form-group">
+          <input type="text" placeholder="Ville" required>
+        </div>
+        <button type="submit" class="btn btn-dark" style="width: 100%;">
+          Obtenir mon offre de rachat
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Featured Properties -->
+  <section class="py-8">
+    <div class="container-wide">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+        <h2>Biens en vedette</h2>
+        <a href="buy.html" style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.0625rem; color: var(--muted-foreground);">
+          Voir tout →
+        </a>
+      </div>
+      
+      <div class="carousel-container">
+        <div class="property-carousel">
+          <!-- Property 1 -->
+          <div class="property-carousel-item card">
+            <div style="overflow: hidden;">
+              <img src="assets/property-1.jpg" alt="Villa luxury" class="card-image">
+            </div>
+            <div class="card-content">
+              <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Résidence avec vue sur montagne</h3>
+              <p class="text-muted mb-2">Villa contemporaine avec vues panoramiques</p>
+              <p style="font-size: 1.5rem; font-weight: 300;">2 850 000 €</p>
+            </div>
+          </div>
+          
+          <!-- Property 2 -->
+          <div class="property-carousel-item card">
+            <div style="overflow: hidden;">
+              <img src="assets/property-2.jpg" alt="Modern architecture" class="card-image">
+            </div>
+            <div class="card-content">
+              <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Chef-d'œuvre architectural</h3>
+              <p class="text-muted mb-2">Design moderne avec luxe côté piscine</p>
+              <p style="font-size: 1.5rem; font-weight: 300;">3 200 000 €</p>
+            </div>
+          </div>
+          
+          <!-- Property 3 -->
+          <div class="property-carousel-item card">
+            <div style="overflow: hidden;">
+              <img src="assets/property-1.jpg" alt="Urban penthouse" class="card-image">
+            </div>
+            <div class="card-content">
+              <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Penthouse urbain</h3>
+              <p class="text-muted mb-2">Vue panoramique sur la ville</p>
+              <p style="font-size: 1.5rem; font-weight: 300;">1 950 000 €</p>
+            </div>
+          </div>
+          
+          <!-- Property 4 -->
+          <div class="property-carousel-item card">
+            <div style="overflow: hidden;">
+              <img src="assets/property-2.jpg" alt="Coastal estate" class="card-image">
+            </div>
+            <div class="card-content">
+              <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Domaine côtier</h3>
+              <p class="text-muted mb-2">Propriété en bord de mer</p>
+              <p style="font-size: 1.5rem; font-weight: 300;">4 500 000 €</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Repairs Teaser -->
+  <section class="py-8" style="background-color: var(--primary); color: white; text-align: center;">
+    <div class="container">
+      <h2 style="color: white; margin-bottom: 1.5rem;">INNLUXE Rénovation</h2>
+      <p style="font-size: 1.125rem; color: rgba(255, 255, 255, 0.9); margin-bottom: 2rem; max-width: 768px; margin-left: auto; margin-right: auto;">
+        Artisanat de précision pour propriétaires exigeants. Des réparations rapides aux rénovations complètes.
+      </p>
+      <a href="repairs.html" class="btn btn-outline">
+        Explorer les services
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container-wide">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>INNLUXE</h3>
+          <p class="text-muted">
+            Précision. Discrétion. Performance. Transformer les biens en liquidité, rapidement.
+          </p>
+        </div>
+        
+        <div>
+          <h4 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05rem; margin-bottom: 1rem;">Liens rapides</h4>
+          <ul class="footer-links">
+            <li><a href="sell.html">Vendre un bien</a></li>
+            <li><a href="buy.html">Acheter un bien</a></li>
+            <li><a href="repairs.html">Services de réparation</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05rem; margin-bottom: 1rem;">Entreprise</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">À propos</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05rem; margin-bottom: 1rem;">Contact</h4>
+          <ul class="footer-links">
+            <li style="margin-bottom: 0.5rem;">+33 6 16 52 50 89</li>
+            <li>cedric@innluxe.fr</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>© 2025 INNLUXE. Tous droits réservés.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
+
